@@ -1,0 +1,10 @@
+.DS_Store
+__pycache__
+*.pyc
+retrain
+sentiment.pt
+/.idea/*
+*.swp
+*.ipynb
+.pynb_checkpoints
+*.pytest_cache

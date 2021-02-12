@@ -1,0 +1,4 @@
+[tool.black]
+line-length = 90
+target-version = ["py37"]
+exclude = "(.eggs|.git|.hg|.mypy_cache|.nox|.tox|.venv|.svn|_build|buck-out|build|dist|__pycache__|get_blogs.py)"

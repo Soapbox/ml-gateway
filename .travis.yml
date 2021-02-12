@@ -1,0 +1,13 @@
+# Python configuration
+language: python
+services: docker
+python:
+    - 3.6
+
+before_install:
+    - docker-compose build
+
+# Run project checker
+script:
+    - docker-compose run --rm -dT --name duckling duckling
+    - docker-compose run --rm -T api ./utils/check_project.sh
