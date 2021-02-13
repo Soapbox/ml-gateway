@@ -1,9 +1,9 @@
-name: 'Build Staging Release'
+name: "Build Staging Release"
 
 on:
   push:
     branches:
-     - staging
+      - staging
 
 jobs:
   build:
@@ -15,10 +15,9 @@ jobs:
       - name: Build and push Docker images
         uses: docker/build-push-action@v1
         with:
-          path: ./api
+          path: .
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: soapboxdev/ml-api
+          repository: soapboxdev/ml-gateway
           tag_with_ref: true
-        env:
-          USE_PRODUCTION_ENV: true
+          tag_with_sha: true
