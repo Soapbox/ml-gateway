@@ -3,6 +3,7 @@
 from typing import List, Optional
 import requests
 from fastapi import APIRouter, Query
+from fastapi.encoders import jsonable_encoder
 from api.db.schemas import AgendaTemplateRequestSample, AgendaTemplateResponseSample
 
 CALENDAR_URL = "http://calendar:8500/agenda_template"
@@ -20,6 +21,7 @@ async def retrieve_agenda_templates(
     if len(samples) == 0:
         return []
 
-    response = requests.get(CALENDAR_URL, data={samples}, params={
-                            "callback": callback})
+    data = jsonable_encoder(samples)
+    response = requests.get(CALENDAR_URL, json=data, params={
+                            "callback": callback}).json()
     return response
