@@ -6,7 +6,7 @@
 
 echo "Formatting codebase..."
 
-python -m black --config api/pyproject.toml "/api/"
+python -m black --config api/pyproject.toml "./api/"
 
 echo ""
 echo "Done!"
